@@ -1,0 +1,22 @@
+    The length of the window and the step used to move the window
+For this in loa_data we need to change the size(checked with two one is 30 and other is 50)
+------------------------------------
+    The size of the input file (use for example the small data file)
+Use any one of the text file and run instead of (entire file)
+---------------------------------------------------------------
+    The type of RNN (LSTM, GRU, SimpleRNN)
+Currently everything is done by LSTM, so change to GRU and simple RNN
+-------------------------------------------------------------
+    The dropout
+dropout of 0.2 is used as of now
+----------------------------------------------
+    The number of layers
+tested with three, more experiments are needed
+--------------------------------------
+    Batch size
+1000 and 256 are used , taking tooooo long time
+--------------------------------------
+    Number of epochs
+10,100 and 1000 are used less than or equla to 100 repetition is happening 
+----------------------------------------------------
+    Use other optimizer like SGD, RMSprop or adagrad
