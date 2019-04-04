@@ -17,7 +17,7 @@ ENTIRE_DATA_FILE = "./data/entire_series.txt"
 
 def remove_special_chars():
     string = open(ENTIRE_DATA_FILE).read()
-    new_str = re.sub('[^a-zA-Z0-9\n. ]', ' ', string)
+    new_str = re.sub('[^a-zA-Z0-9\n.?!, ]', ' ', string)
     open(ENTIRE_DATA_FILE, 'w').write(new_str)
 
 
@@ -87,9 +87,9 @@ def generate_text(model, length, vocab_size, ix_to_char):
 
 def create_lstm_model(vocab_size):
     model = Sequential()
-    model.add(LSTM(300, input_shape=(None, vocab_size), return_sequences=True))
-    model.add(LSTM(200, return_sequences=True))
-    model.add(LSTM(100, return_sequences=True))
+    model.add(LSTM(256, input_shape=(None, vocab_size), return_sequences=True))
+    model.add(LSTM(128, return_sequences=True))
+    model.add(LSTM(64, return_sequences=True))
     model.add(Dropout(0.2))
     model.add(TimeDistributed(Dense(vocab_size)))
     model.add(Activation('softmax'))
@@ -98,8 +98,8 @@ def create_lstm_model(vocab_size):
 
 def create_gru_model(vocab_size):
     model = Sequential()
-    model.add(GRU(200, return_sequences=True))
-    model.add(GRU(100, return_sequences=True))
+    model.add(GRU(128,input_shape=(None, vocab_size), return_sequences=True))
+    model.add(GRU(64, return_sequences=True))
     model.add(Dropout(0.2))
     model.add(TimeDistributed(Dense(vocab_size)))
     model.add(Activation('softmax'))
@@ -108,8 +108,8 @@ def create_gru_model(vocab_size):
 
 def create_simplernn_model(vocab_size):
     model = Sequential()
-    model.add(SimpleRNN(200, return_sequences=True))
-    model.add(SimpleRNN(100, return_sequences=True))
+    model.add(SimpleRNN(128,input_shape=(None, vocab_size), return_sequences=True))
+    model.add(SimpleRNN(64, return_sequences=True))
     model.add(Dropout(0.2))
     model.add(TimeDistributed(Dense(vocab_size)))
     model.add(Activation('softmax'))
@@ -145,27 +145,10 @@ def main():
     # model = create_simplernn_model(vocab_size)
 
     # create the LSTM model
-    model = create_lstm_model(vocab_size)
+    # model = create_lstm_model(vocab_size)
 
     # create GRU model
-    # model = create_GRU_model(vocab_size)
-
-    print("first generation")
-    text = generate_text(model, 100, vocab_size, ix_to_char)
-    print(text)
-
-    # Generate some sample before training to know how bad it is!
-    # generate_text(model, 30, vocab_size, ix_to_char)
-
-    model = train_model(model, x, y, 256)
-
-    # plot the RNN model
-    model.summary()
-    plot_model(model, to_file="RNN_model", show_shapes=True)
-
-    # print("loading pre trained weights")
-    # if you have the weigths then load the weigths, no training required
-    # model.load_weights("weights-improvement-999-0.8728.hdf5")
+    model = create_gru_model(vocab_size)
 
     # define the optimizer
     optim = optimizers.RMSprop(lr=0.001, rho=0.9, epsilon=1e-08, decay=0.0)
@@ -174,6 +157,23 @@ def main():
 
     # compile the model
     model.compile(loss="categorical_crossentropy", optimizer=optim)
+
+    # plot the RNN model
+    model.summary()
+    plot_model(model, to_file="RNN_model", show_shapes=True)
+
+    print("first generation")
+    text = generate_text(model, 100, vocab_size, ix_to_char)
+    print(text)
+
+    # Generate some sample before training to know how bad it is!
+    # generate_text(model, 30, vocab_size, ix_to_char)
+
+    model = train_model(model, x, y, 1000)
+
+    # print("loading pre trained weights")
+    # if you have the weigths then load the weigths, no training required
+    # model.load_weights("weights-improvement-999-0.8728.hdf5")
 
     # generate the text, prediction stage
     print("final generation")
