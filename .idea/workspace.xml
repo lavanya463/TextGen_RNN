@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46243fde-590e-408f-ab03-22a060b850d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkpoint_layer_hidden_epoch_100.hdf5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/checkpoint_layer_hidden_epoch_1000.hdf5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/launcher_txt.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/launcher_txt.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/1000_iterations.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/100_iter.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/100_itera_reptition_of_sent.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/100_itera_reptition_of_sent.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/garbage_with_load_weights.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/len_500_epochs_1000_dropout.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/text_generation_RNN.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_generation_RNN.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_generation_RNN.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights-improvement-10-2.4940.hdf5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights-improvement-999-0.8728.hdf5" beforeDir="false" />
-    </list>
+    <list default="true" id="46243fde-590e-408f-ab03-22a060b850d3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
