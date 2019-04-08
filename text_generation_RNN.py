@@ -151,9 +151,9 @@ def main():
     model = create_gru_model(vocab_size)
 
     # define the optimizer
-    optim = optimizers.RMSprop(lr=0.001, rho=0.9, epsilon=1e-08, decay=0.0)
+    #optim = optimizers.RMSprop(lr=0.001, rho=0.9, epsilon=1e-08, decay=0.0)
     # optim = 'adam'
-    # optim = 'adagrad'
+    optim = 'adagrad'
 
     # compile the model
     model.compile(loss="categorical_crossentropy", optimizer=optim)
